@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Expenses\Tables;
+namespace App\Filament\Resources\LocationTypes\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ExpensesTable
+class LocationTypesTable
 {
     public static function configure(Table $table): Table
     {
@@ -19,7 +16,7 @@ class ExpensesTable
                 //
             ])
             ->filters([
-                TrashedFilter::make(),
+                //
             ])
             ->recordActions([
                 EditAction::make(),
@@ -27,8 +24,6 @@ class ExpensesTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
                 ]),
             ]);
     }

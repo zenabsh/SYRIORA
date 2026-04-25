@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\Expenses\Pages;
+namespace App\Filament\Resources\Statuses\Pages;
 
-use App\Filament\Resources\Expenses\ExpensesResource;
+use App\Filament\Resources\Statuses\StatusesResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-class ListExpenses extends ListRecords
+class ListStatuses extends ListRecords
 {
-    protected static string $resource = ExpensesResource::class;
+    protected static string $resource = StatusesResource::class;
 
     protected function getHeaderActions(): array
     {
