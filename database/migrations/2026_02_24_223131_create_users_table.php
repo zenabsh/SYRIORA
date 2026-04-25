@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 return new class extends Migration
 {
@@ -16,11 +17,12 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('password');
             $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete()->change();
+            $table->string('image')->nullable();
           //  $table->foreignId('role_id')->constrained()->cascadeOnDelete()->nullable()->change();
             $table->string('user_name', 50)->unique()->nullable();
             $table->string('full_name', 100)->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('tel', 50)->nullable();
+            $table->string('phone', 50)->nullable();
             $table->text('bio')->nullable();
             $table->boolean('is_verified')->default(false)->nullable();
             $table->rememberToken();

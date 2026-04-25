@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->foreignId('status_id')->constrained('statuses')->cascadeOnDelete();
-            $table->foreignId('changed_by')->constrained('users')->cascadeOnDelete();
-            $table->date('chanhe_date');
+            //$table->foreignId('changed_by')->constrained('users')->cascadeOnDelete();
+            $table->date('change_date');
             $table->text('reason');
             $table->timestamps();
         });

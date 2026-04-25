@@ -35,6 +35,15 @@ class Post extends Model
 {
     return $this->belongsTo(User::class);
 }
-
+public function getStatusLabelAttribute()
+{
+    return match ($this->status) {
+        'pending' => 'قيد الانتظار',
+        'approved' => 'موافق عليها',
+        'rejected' => 'مرفوضة',
+        'completed' => 'مكتملة',
+        default => $this->status,
+    };
+}
 
 }

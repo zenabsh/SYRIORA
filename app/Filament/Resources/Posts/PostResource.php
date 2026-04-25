@@ -53,5 +53,4 @@ class PostResource extends Resource
                 $q->where('name', 'pending');
             });
     }
-   
 }
