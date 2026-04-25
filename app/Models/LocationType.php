@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class LocationType extends Model
 {
-    //
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }

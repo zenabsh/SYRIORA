@@ -62,9 +62,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-     public function poststatushistory(){
+/*public function poststatushistory(){
         return $this->hasMany(PostStatusHistory::class);
-    }
+    }*/
 
      public function expenses(){
         return $this->hasMany(Expense::class);

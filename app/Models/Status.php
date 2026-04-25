@@ -9,10 +9,10 @@ class Status extends Model
       public function posts(){
         return $this->hasMany(Post::class);
       }
-      public function poststatushistory(){
+      /*public function poststatushistory(){
          return $this->hasMany(PostStatusHistory::class);
 
-      }
+      }*/
 
 
 }

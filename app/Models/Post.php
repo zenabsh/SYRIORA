@@ -27,10 +27,28 @@ class Post extends Model
       public function comments(){
         return $this->hasMany(Comment::class);
     }
-
-         public function poststatushistory(){
-        return $this->hasMany(PostStatusHistory::class);
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
     }
+     public function savedBy()
+    {
+        return $this->belongsToMany(User::class, 'saved');
+    }
+
+    public function sharedBy()
+    {
+        return $this->belongsToMany(User::class, 'shared');
+    }
+
+    public function viewedBy()
+    {
+        return $this->belongsToMany(User::class, 'views');
+    }
+
+      /*   public function poststatushistory(){
+        return $this->hasMany(PostStatusHistory::class);
+    }*/
      public function user()
 {
     return $this->belongsTo(User::class);
