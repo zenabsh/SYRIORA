@@ -12,9 +12,21 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',100);
+            $table->foreignId('location_type_id')->nullable()->constrained('location_types')->cascadeOnDelete();
+            $table->foreignId('parent_id')->nullable()->constrained('locations')->cascadeOnDelete();
+            $table->timestamps();
+        });
+        Schema::create('location_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',100)->unique();
+            $table->timestamps();
+        });
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            //$table->string('name')->nullable();
             $table->string('password');
             $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete()->change();
             $table->string('image')->nullable();

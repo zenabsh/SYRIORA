@@ -19,8 +19,8 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('description');
-            $table->integer('required_amount');
-            $table->integer('total_amount')->default(0);
+            $table->integer('required_amount')->nullable();
+            $table->integer('total_amount')->default(0)->nullable();
             $table->string('image')->nullable();
             $table->integer('shared_count')->default(0);
             $table->integer('likes_count')->default(0);

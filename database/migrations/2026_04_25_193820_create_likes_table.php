@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->enum('type', ['like', 'dislike' ,     'love','wow','sad','angry'])->default('like');
+
             $table->timestamps();
         });
     }
