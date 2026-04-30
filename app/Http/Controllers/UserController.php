@@ -13,11 +13,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    /*public function index($id)
     {
             return User::findOrFail($id);
 
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -54,7 +54,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
           $user = User::findOrFail($id);
 
@@ -85,7 +85,7 @@ class UserController extends Controller
     {
         //
     }
-    public function posts($id)
+    public function posts(int $id)
 {
     return Post::where('user_id', $id)
         ->latest()

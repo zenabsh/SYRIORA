@@ -13,7 +13,7 @@ class ExpenseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($postId)
+    public function index(int $postId)
     {
         return Expense::where('post_id', $postId)
         ->latest()
@@ -79,7 +79,7 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Expense $expense,$id)
+    public function destroy(Expense $expense,int $id)
     {
         $expense = Expense::findOrFail($id);
 

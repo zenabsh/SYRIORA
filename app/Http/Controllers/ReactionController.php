@@ -77,7 +77,7 @@ class ReactionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($postId)
+    /*public function destroy($postId)
     {
         PostReaction::where('post_id',$postId)
         ->where('user_id',Auth::id())
@@ -91,5 +91,5 @@ class ReactionController extends Controller
 {
     return PostReaction::where('post_id',$postId)
         ->count();
-}
+}*/
 }

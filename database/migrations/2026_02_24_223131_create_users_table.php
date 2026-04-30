@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use phpDocumentor\Reflection\Types\Nullable;
+//use phpDocumentor\Reflection\Types\Nullable;
 
 return new class extends Migration
 {
@@ -12,6 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+         Schema::create('location_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',100)->unique();
+            $table->timestamps();
+        });
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
@@ -19,16 +24,12 @@ return new class extends Migration
             $table->foreignId('parent_id')->nullable()->constrained('locations')->cascadeOnDelete();
             $table->timestamps();
         });
-        Schema::create('location_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',100)->unique();
-            $table->timestamps();
-        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             //$table->string('name')->nullable();
             $table->string('password');
-            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete()->change();
+            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete();
             $table->string('image')->nullable();
           //  $table->foreignId('role_id')->constrained()->cascadeOnDelete()->nullable()->change();
             $table->string('user_name', 50)->unique()->nullable();
