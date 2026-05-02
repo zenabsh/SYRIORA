@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('amount');
             $table->unsignedBigInteger('ref_id')->nullable();
             $table->string('method')->nullable();
-
             $table->timestamps();
         });
     }

@@ -12,32 +12,38 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('location_types', function (Blueprint $table) {
+        Schema::create('location_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100)->unique();
+            $table->string('name', 100)->unique();
             $table->timestamps();
         });
+
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->foreignId('location_type_id')->nullable()->constrained('location_types')->cascadeOnDelete();
+            $table->string('name', 100);
+            $table->foreignId('location_type_id')->constrained()->cascadeOnDelete();
             $table->foreignId('parent_id')->nullable()->constrained('locations')->cascadeOnDelete();
+            $table->timestamps();
+        });
+
+        Schema::create('universities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100)->unique();
             $table->timestamps();
         });
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            //$table->string('name')->nullable();
-            $table->string('password');
-            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete();
-            $table->string('image')->nullable();
-          //  $table->foreignId('role_id')->constrained()->cascadeOnDelete()->nullable()->change();
             $table->string('user_name', 50)->unique()->nullable();
             $table->string('full_name', 100)->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('phone', 50)->nullable();
+            $table->string('password');
+            $table->string('image')->nullable();
             $table->text('bio')->nullable();
             $table->boolean('is_verified')->default(false)->nullable();
+            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('university_id')->nullable()->constrained()->nullOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });

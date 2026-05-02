@@ -15,15 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
-            //$table->foreignId('requested_by')->constrained('users')->cascadeOnDelete();
-            //$table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->string('title',50);
-
+            $table->string('title', 50);
             $table->integer('amount');
             $table->text('description');
-           // $table->date('expnses_date');
-           $table->timestamp('spent_at')->nullable();
-            $table->string('status');
+            $table->timestamp('spent_at')->nullable();
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->string('proof_document_url');
             $table->timestamps();
         });

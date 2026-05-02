@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            //$table->foreignId('status_id')->constrained('statuses')->cascadeOnDelete();
-
             $table->string('title');
             $table->text('description');
             $table->integer('required_amount')->nullable();
@@ -26,7 +24,6 @@ return new class extends Migration
             $table->integer('likes_count')->default(0);
             $table->integer('saved_count')->default(0);
             $table->integer('views_count')->default(0);
-
             $table->timestamps();
         });
     }
